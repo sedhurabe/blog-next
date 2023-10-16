@@ -1,8 +1,8 @@
 'use client';
-import React, { useState, ChangeEvent, use } from 'react';
-import { useRouter } from 'next/navigation';
-import Post from "./post";
-import EditModel from "./editModel";
+import React, { useState, ChangeEvent } from 'react';
+import { useRouter } from "next/navigation";
+import Post from "./post/page";
+import EditModel from "./editpost/page";
 type DataObject = {
     id:number;
     date: Date;
@@ -23,8 +23,7 @@ type SObject = {
 };
 
 
-export default function Home() {
-    const router = useRouter();
+const Home = () => {
     const [postObj, setPostObj] = useState({ title: '', content: '' });
     const [dataObj, setDataObj] = useState<DataObject[]>([]);
     const [isSelected, setIsselected] = useState<SObject>();
@@ -83,6 +82,7 @@ export default function Home() {
                 </div>
             </div>
         </div>
-
     )
 }
+
+export default Home;
